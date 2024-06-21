@@ -1,15 +1,19 @@
-import { HeaderStylizado } from "../../StyledComponent/Home-module/Header-Components";
+import { HeaderStylizado } from "../../StyledComponent/Home-module/Header-styles/Header";
+import ButtonNotClicked from "../../StyledComponent/Home-module/Header-styles/Header-Component/Button-Not-Clicked";
+import ButtonClicked from "../../StyledComponent/Home-module/Header-styles/Header-Component/Button-clicked";
+import { Content } from "../../StyledComponent/Home-module/Header-styles/Header-Component/Content-Buttons";
 import logo from "./Logo.png";
+
 function Header() {
   return (
     <HeaderStylizado>
       <div className="img-Content">
         <img src={logo} alt="logo aluraFlix" />
       </div>
-      <div className="button-Content">
-        <button className="button button-home">HOME</button>
-        <button className="button button-new-video">NUEVO VIDEO</button>
-      </div>
+      <Content>
+        <ButtonClicked title="Home" />
+        <ButtonNotClicked title="Nuevo video" />
+      </Content>
     </HeaderStylizado>
   );
 }

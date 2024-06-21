@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Home from "./Pages/Home";
 
 function App() {

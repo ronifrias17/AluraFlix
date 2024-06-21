@@ -1,0 +1,13 @@
+import styled from "styled-components";
+
+export const HeaderStylizado = styled.header`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 125px;
+  border: 0px 0px 4px 0px;
+  background: rgba(38, 38, 38, 1);
+  border-bottom: 4px solid rgba(34, 113, 209, 1);
+  box-shadow: 0px 5px 29px 0px rgba(34, 113, 209, 0.7);
+  padding: 5px 2%;
+`;
