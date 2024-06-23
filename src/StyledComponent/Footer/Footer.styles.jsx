@@ -10,4 +10,5 @@ export const Footerstylizado = styled.footer`
   border-top: 4px solid rgba(34, 113, 209, 1);
   box-shadow: 0px 5px 29px 0px rgba(34, 113, 209, 0.7);
   padding: 5px 2%;
+  position: relative;
 `;

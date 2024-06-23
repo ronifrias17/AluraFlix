@@ -1,7 +1,5 @@
 import { MainStylizado } from "../../StyledComponent/Main/Main";
 
-export default function Main() {
-  return <MainStylizado>
-    
-  </MainStylizado>;
+export default function Main({ children }) {
+  return <MainStylizado>{children}</MainStylizado>;
 }

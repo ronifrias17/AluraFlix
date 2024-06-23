@@ -1,16 +1,14 @@
-import Main from "../../Components/Main";
-import { Banner } from "../../StyledComponent/Main/Banner";
-import BannerImg from "../../../public/Img/Banner.png";
 import Header from "../../Components/Header";
+import Main from "../../Components/Main";
+import Banner from "../../Components/Main/Banner";
+import Player from "../../Components/Main/Banner/Player";
 
 function Home() {
   return (
     <>
       <Header />
       <Main>
-        <Banner>
-          <img src={BannerImg} alt="Banner" />
-        </Banner>
+        <Banner img="Banner.png" color="#0012338f" />
       </Main>
     </>
   );

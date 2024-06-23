@@ -7,7 +7,7 @@ import { Content } from "../../StyledComponent/Home/Header/Header-Component/Cont
 function Header() {
   return (
     <HeaderStylizado>
-      <div className="img-Content">
+      <div>
         <img src={logo} alt="logo aluraFlix" />
       </div>
       <Content>

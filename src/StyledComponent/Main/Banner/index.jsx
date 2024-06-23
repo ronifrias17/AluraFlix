@@ -1,9 +1,14 @@
 import styled from "styled-components";
 
-export const Banner = styled.div`
+export const BannerStilizado = styled.div`
   width: 100%;
-  height: 832px;
-  gap: 0px;
-  opacity: 0px;
-  background: rgba(0, 18, 51, 0.56);
+  height: 110vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+`;
+
+export const Gradient = styled.div`
+  height: 115vh;
+  width: 100%;
+  opacity: 0.5;
 `;
