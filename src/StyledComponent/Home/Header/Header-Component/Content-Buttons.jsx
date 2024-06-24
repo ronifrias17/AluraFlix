@@ -3,6 +3,11 @@ import styled from "styled-components";
 export const Content = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  width: 35%;
+  width: 30%;
+  padding-right: 20px;
+  gap: 1em;
+
+  @media (min-width: 600px) and (max-width: 1024px) {
+    width: 40%;
+  }
 `;
