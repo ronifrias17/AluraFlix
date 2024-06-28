@@ -13,7 +13,7 @@ export const BannerStilizado = styled.div`
 `;
 
 export const Gradient = styled.div`
-  height: 115vh;
+  height: 110vh;
   width: 100%;
   opacity: 0.5;
 
