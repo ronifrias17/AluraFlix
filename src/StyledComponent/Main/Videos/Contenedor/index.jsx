@@ -5,4 +5,5 @@ export const VideoContent = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   gap: 1em;
+  padding-left: 3%;
 `;
