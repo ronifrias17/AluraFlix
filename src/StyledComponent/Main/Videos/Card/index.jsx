@@ -7,6 +7,7 @@ export const CardStylizada = styled.figure`
   height: 300px;
   align-items: center;
   border-radius: 15px;
+  margin-left: 45px;
   margin-bottom: 100px;
   border: 5px solid rgba(107, 209, 255, 1);
   box-shadow: 0px -4px 5px 3px rgba(107, 209, 255, 1) inset;

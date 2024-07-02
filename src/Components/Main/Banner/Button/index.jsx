@@ -1,14 +1,6 @@
 import ButtonStylizado from "../../../../StyledComponent/Main/Banner/Button";
 
-export default function Button({
-  titulo,
-  color,
-  size,
-  fontSize,
-  ancho,
-  alto,
-  radius,
-}) {
+export default function Button({ titulo, color, size, fontSize, ancho, alto }) {
   return (
     <ButtonStylizado
       color={color}
@@ -16,7 +8,6 @@ export default function Button({
       fontSize={fontSize}
       ancho={ancho}
       alto={alto}
-      radius={radius}
     >
       {titulo}
     </ButtonStylizado>

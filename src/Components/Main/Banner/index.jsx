@@ -19,7 +19,6 @@ function Banner({ img, color }) {
             color="#6bd1ff"
             ancho="296.82px"
             alto="92px"
-            radius="15px"
           />
           <h1>Challenge React</h1>
           <p>

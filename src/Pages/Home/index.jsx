@@ -14,10 +14,7 @@ function Home() {
       <Main>
         <Banner img="Banner.png" color="#0012338f" />
         <Videos>
-          <Button />
-          <ContentVideos>
-            <Card />
-          </ContentVideos>
+          <ContentVideos />
         </Videos>
       </Main>
     </>
