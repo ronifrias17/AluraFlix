@@ -1,25 +1,26 @@
 import styled from "styled-components";
 
-export const CardStylizada = styled.figure`
+export const CardStylizada = styled.div`
   display: flex;
   flex-direction: column;
-  width: 350px;
-  height: 300px;
+  width: 370px;
+  height: 320px;
   align-items: center;
   border-radius: 15px;
-  margin-left: 45px;
-  margin-bottom: 100px;
-  border: 5px solid rgba(107, 209, 255, 1);
-  box-shadow: 0px -4px 5px 3px rgba(107, 209, 255, 1) inset;
+  border: 5px solid ${(props) => props.color};
+  box-shadow: 0px -4px 5px 3px ${(props) => props.color} inset;
   background: rgba(0, 0, 0, 0.9);
+
   .imagenContent {
+    width: 100%;
     height: 80%;
     border: 2px;
-    box-shadow: 0px 0px 17px 8px rgba(107, 209, 255, 1) inset;
+    box-sizing: border-box;
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: 0px 0px 17px 8px ${(props) => props.color} inset;
   }
-  .img {
-    width: 100%;
-  }
+
   .rodapie {
     width: 80%;
     box-sizing: border-box;

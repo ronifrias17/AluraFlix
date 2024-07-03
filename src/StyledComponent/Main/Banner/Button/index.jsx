@@ -12,7 +12,7 @@ const ButtonStylizado = styled.button`
   color: #fff;
   background-color: ${(props) => props.color || "#6bd1ff"};
   font-size: ${(props) => props.fontSize};
-  width: ${(props) => props.ancho || "355px"};
+  width: ${(props) => props.ancho || "370px"};
   height: ${(props) => props.alto || "50px"};
   border-radius: 15px;
   text-transform: uppercase;

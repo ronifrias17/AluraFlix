@@ -13,13 +13,9 @@ function Banner({ img, color }) {
       <Gradient style={{ background: `${color}` }} />
       <Content>
         <Container>
-          <Button
-            titulo="Front End"
-            fontSize="48px"
-            color="#6bd1ff"
-            ancho="296.82px"
-            alto="92px"
-          />
+          <Button fontSize="48px" color="#6bd1ff" ancho="296.82px" alto="92px">
+            Front End
+          </Button>
           <h1>Challenge React</h1>
           <p>
             Este challenge es una forma de aprendizaje. Es un mecanismo donde
