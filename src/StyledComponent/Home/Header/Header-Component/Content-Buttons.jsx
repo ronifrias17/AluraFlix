@@ -4,7 +4,7 @@ export const Content = styled.div`
   display: flex;
   align-items: center;
   width: 30%;
-  padding-right: 20px;
+  margin-right: 3%;
   gap: 1em;
   cursor: pointer;
 

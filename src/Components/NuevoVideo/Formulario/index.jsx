@@ -31,9 +31,9 @@ function Formulario() {
           className="select"
         >
           <option>seleccione una categoría</option>
-          <option>FrontEnd</option>
-          <option>BackEnd</option>
-          <option>Innovacion y Gestion</option>
+          <option>Frontend</option>
+          <option>Backend</option>
+          <option>Innovacion y gestion</option>
         </select>
       </div>
 
@@ -65,7 +65,7 @@ function Formulario() {
           placeholder="¿de qué trata el vídeo?"
         ></textarea>
         <div className="botones">
-          <ButtonNotClicked color="#2271d1" title="Guardar" />
+          <ButtonNotClicked color="#2271d1" title="Guardar" type="submit" />
           <ButtonNotClicked title="Limpiar" />
         </div>
       </div>

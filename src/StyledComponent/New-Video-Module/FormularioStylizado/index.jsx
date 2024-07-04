@@ -41,6 +41,7 @@ const FormularioStylizado = styled.form`
       line-height: 24px;
       text-align: left;
       color: rgba(165, 165, 165, 1);
+      padding-left: 5px;
     }
 
     textarea {
