@@ -12,7 +12,7 @@ const ButtonNotClick = styled.button`
   text-align: center;
   border-radius: 10px;
   cursor: pointer;
-  border: 2px solid rgba(245, 245, 245, 1);
+  border: 2px solid ${(props) => props.color || "rgba(245, 245, 245, 1)"};
   background-color: transparent;
   color: #fff;
 
@@ -22,10 +22,10 @@ const ButtonNotClick = styled.button`
   }
 `;
 
-export default function ButtonNotClicked({ title, link }) {
+export default function ButtonNotClicked({ title, link, color }) {
   return (
     <Link to={link} className="enlace">
-      <ButtonNotClick>{title}</ButtonNotClick>
+      <ButtonNotClick color={color}>{title}</ButtonNotClick>
     </Link>
   );
 }

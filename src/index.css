@@ -1,6 +1,22 @@
 html {
   line-height: 1.15;
-  /* -webkit-text-size-adjust: 100%; */
+
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #000000e6;
+    border-radius: 10px;
+  }
+
+  scrollbar-width: thin;
+  scrollbar-color: #000000e6 transparent;
+
 }
 
 body {

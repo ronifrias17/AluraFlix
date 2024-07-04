@@ -25,6 +25,7 @@ export const TituloNuevoVideoContent = styled.div`
     line-height: 23.44px;
     text-align: center;
     color: rgba(245, 245, 245, 1);
+    padding-top: 15px;
     margin: 0;
   }
 `;
