@@ -6,6 +6,7 @@ export const Content = styled.div`
   width: 30%;
   padding-right: 20px;
   gap: 1em;
+  cursor: pointer;
 
   @media (min-width: 600px) and (max-width: 1024px) {
     width: 40%;

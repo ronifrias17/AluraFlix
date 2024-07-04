@@ -1,12 +1,11 @@
 import { CardStylizada } from "../../../../StyledComponent/Main/Videos/Card";
 
-export default function Card({ img, color }) {
+export default function Card({ img, color, titulo }) {
   return (
     <CardStylizada color={color}>
-      <div
-        className="imagenContent"
-        style={{ backgroundImage: `url(${img})` }}
-      ></div>
+      <div className="imagenContent" style={{ backgroundImage: `url(${img})` }}>
+        <span className="videoTitulo">{titulo}</span>
+      </div>
       <div className="rodapie">
         <div className="rodabpieItems">
           <img src="/public/img/borrar.png" alt="Borrar" />

@@ -9,7 +9,7 @@ function ContentVideos() {
   const [videos, setVideos] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/videos")
+    fetch("https://api-proyectos-alura-one.vercel.app/videos-aluraFlix")
       .then((response) => response.json())
       .then((data) => {
         setVideos(data);
@@ -36,7 +36,12 @@ function ContentVideos() {
           </ButtonContainer>
           <VideoContent>
             {groupedVideos[categoria].map((video) => (
-              <Card key={video.id} img={video.imagen} color={video.color} />
+              <Card
+                key={video.id}
+                img={video.imagen}
+                color={video.color}
+                titulo={video.titulo}
+              />
             ))}
           </VideoContent>
         </div>

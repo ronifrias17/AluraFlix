@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const ButtonNotClick = styled.button`
@@ -14,8 +15,17 @@ const ButtonNotClick = styled.button`
   border: 2px solid rgba(245, 245, 245, 1);
   background-color: transparent;
   color: #fff;
+
+  .enlace {
+    text-decoration: none;
+    color: inherit;
+  }
 `;
 
-export default function ButtonNotClicked({ title }) {
-  return <ButtonNotClick>{title}</ButtonNotClick>;
+export default function ButtonNotClicked({ title, link }) {
+  return (
+    <Link to={link} className="enlace">
+      <ButtonNotClick>{title}</ButtonNotClick>
+    </Link>
+  );
 }
