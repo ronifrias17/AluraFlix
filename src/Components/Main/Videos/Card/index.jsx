@@ -9,6 +9,10 @@ export default function Card({ img, color }) {
     setIsEditing(true);
   };
 
+  const handleClose = () => {
+    setIsEditing(false);
+  };
+
   return (
     <CardStylizada color={color}>
       <div
@@ -25,7 +29,7 @@ export default function Card({ img, color }) {
           <span>Editar</span>
         </div>
       </div>
-      {isEditing && <Editar />}
+      {isEditing && <Editar cerrar={handleClose} />}
     </CardStylizada>
   );
 }

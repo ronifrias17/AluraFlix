@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import {
   DialogEdit,
   FondoTrasparent,
@@ -6,12 +7,16 @@ import ButtonNotClicked from "../../StyledComponent/Home/Header/Header-Component
 import ButtonClicked from "../../StyledComponent/Home/Header/Header-Component/Button-clicked";
 import Formulario from "../NuevoVideo/Formulario";
 
-function Editar() {
+function Editar({ cerrar }) {
+  const handleCerrar = () => {
+    cerrar(); 
+  };
+
   return (
     <>
       <FondoTrasparent />
       <DialogEdit open>
-        <div className="close">
+        <div className="close" onClick={handleCerrar}>
           <img src="/public/img/close.png" alt="Icono cerrar" />
         </div>
         <Formulario
