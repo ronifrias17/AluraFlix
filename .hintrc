@@ -7,9 +7,21 @@
       "default",
       {
         "ignore": [
-          "-webkit-text-size-adjust"
+          "-webkit-text-size-adjust",
+          "scrollbar-width"
         ]
       }
     ]
-  }
+  },
+  "browserslist": [
+    "defaults",
+    "not ie 11",
+    "not and_chr <= 124",
+    "not chrome <= 124",
+    "not edge <= 124",
+    "not ios_saf <= 17.4",
+    "not opera <= 109",
+    "not safari <= 17.4",
+    "not samsung <= 24"
+  ]
 }

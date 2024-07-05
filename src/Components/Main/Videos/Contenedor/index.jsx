@@ -1,20 +1,30 @@
 import { useState, useEffect } from "react";
-import Videos from "..";
 import { ButtonContainer } from "../../../../StyledComponent/Main/Banner/Button";
 import { VideoContent } from "../../../../StyledComponent/Main/Videos/Contenedor";
 import Button from "../../Banner/Button";
 import Card from "../Card";
 
-function ContentVideos() {
+function ContentVideos({ onDataFetched }) {
   const [videos, setVideos] = useState([]);
 
   useEffect(() => {
-    fetch("https://api-proyectos-alura-one.vercel.app/videos-aluraFlix")
-      .then((response) => response.json())
-      .then((data) => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "https://api-proyectos-alura-one.vercel.app/videos-aluraFlix"
+        );
+        const data = await response.json();
         setVideos(data);
-      });
-  }, []);
+        if (onDataFetched) {
+          onDataFetched(data); // Llama al callback pasando los datos obtenidos
+        }
+      } catch (error) {
+        console.error("Error fetching data: ", error);
+      }
+    };
+
+    fetchData();
+  }, [onDataFetched]);
 
   // Agrupar videos por categoría
   const groupedVideos = videos.reduce((acc, video) => {

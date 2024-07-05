@@ -15,7 +15,7 @@ function NuevoVideo() {
       </Header>
       <NuevoVideoStylizado>
         <Titulo />
-        <Formulario />
+        <Formulario border="3px" />
       </NuevoVideoStylizado>
       <Footer />
     </>

@@ -21,16 +21,6 @@ export const CardStylizada = styled.div`
     box-shadow: 0px 0px 17px 8px ${(props) => props.color} inset;
   }
 
-  .videoTitulo {
-    color: #000;
-    font-family: "Roboto";
-    position: relative;
-    top: 200px;
-    left: 10px;
-    font-weight: 700;
-    font-size: 20px;
-  }
-
   .rodapie {
     width: 80%;
     box-sizing: border-box;

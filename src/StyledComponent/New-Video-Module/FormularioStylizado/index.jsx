@@ -8,22 +8,6 @@ const FormularioStylizado = styled.form`
   margin: 5%;
   gap: 1em;
 
-  .tituloForm {
-    width: 100%;
-    border-color: rgba(38, 38, 38, 1);
-    border: 3px solid rgba(38, 38, 38, 1);
-    border-left: none;
-    border-right: none;
-    font-family: "Source Sans 3";
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 24px;
-    text-align: left;
-    color: rgba(255, 255, 255, 1);
-    background-color: transparent;
-    margin-bottom: 3em;
-  }
-
   .content {
     display: flex;
     flex-direction: column;
@@ -63,9 +47,25 @@ const FormularioStylizado = styled.form`
 
   .botones {
     display: flex;
-    margin-top: 3em;
+    width: 100%;
     gap: 1em;
   }
+`;
+
+const TituloContent = styled.div`
+  width: 100%;
+  border: ${(props) => props.border || "none"} solid
+    ${(props) => props.color || "rgba(38, 38, 38, 1)"};
+  border-left: none;
+  border-right: none;
+  font-family: "Source Sans 3";
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+  text-align: left;
+  color: ${(props) => props.color || "rgba(255, 255, 255, 1)"};
+  background-color: transparent;
+  margin-bottom: 3em;
 `;
 
 const Labels = styled.label`
@@ -82,7 +82,7 @@ const Inputs = styled.input`
   width: ${(props) => props.tamaño || "545px"};
   height: 62px;
   border-radius: 10px;
-  border: 3px solid rgba(38, 38, 38, 1);
+  border: 3px solid ${(props) => props.color || "rgba(38, 38, 38, 1)"};
   font-family: "Source Sans 3";
   font-size: 20px;
   font-weight: 600;
@@ -94,4 +94,4 @@ const Inputs = styled.input`
   box-sizing: border-box;
 `;
 
-export { FormularioStylizado, Labels, Inputs };
+export { FormularioStylizado, Labels, Inputs, TituloContent };

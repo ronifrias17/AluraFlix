@@ -3,14 +3,15 @@ import {
   Inputs,
   Labels,
   FormularioStylizado,
+  TituloContent,
 } from "../../../StyledComponent/New-Video-Module/FormularioStylizado";
 
-function Formulario() {
+function Formulario({ border, color }) {
   return (
     <FormularioStylizado>
-      <div className="tituloForm">
+      <TituloContent border={border} color={color}>
         <h2>Crear Tarjeta</h2>
-      </div>
+      </TituloContent>
       <div className="content">
         <Labels htmlFor="titulo">Título</Labels>
         <Inputs
@@ -19,6 +20,7 @@ function Formulario() {
           id="titulo"
           placeholder="ingrese el título"
           tamaño="470px"
+          color={color}
         />
       </div>
 
@@ -44,6 +46,7 @@ function Formulario() {
           name="imagen"
           id="imagen"
           placeholder="ingrese el enlace de la imagen"
+          color={color}
         />
       </div>
 
@@ -54,6 +57,7 @@ function Formulario() {
           name="video"
           id="video"
           placeholder="ingrese el enlace del video"
+          color={color}
         />
       </div>
 
@@ -64,10 +68,11 @@ function Formulario() {
           id="descripcion"
           placeholder="¿de qué trata el vídeo?"
         ></textarea>
-        <div className="botones">
-          <ButtonNotClicked color="#2271d1" title="Guardar" type="submit" />
-          <ButtonNotClicked title="Limpiar" />
-        </div>
+      </div>
+
+      <div className="botones">
+        <ButtonNotClicked color="#2271d1" title="Guardar" type="submit" />
+        <ButtonNotClicked title="Limpiar" type="reset" />
       </div>
     </FormularioStylizado>
   );
