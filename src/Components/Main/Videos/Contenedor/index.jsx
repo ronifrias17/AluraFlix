@@ -16,7 +16,7 @@ function ContentVideos({ onDataFetched }) {
         const data = await response.json();
         setVideos(data);
         if (onDataFetched) {
-          onDataFetched(data); // Llama al callback pasando los datos obtenidos
+          onDataFetched(data);
         }
       } catch (error) {
         console.error("Error fetching data: ", error);
@@ -35,6 +35,10 @@ function ContentVideos({ onDataFetched }) {
     return acc;
   }, {});
 
+  const eliminar = (id) => {
+    setVideos(videos.filter((video) => video.id !== id));
+  };
+
   return (
     <>
       {Object.keys(groupedVideos).map((categoria) => (
@@ -48,9 +52,11 @@ function ContentVideos({ onDataFetched }) {
             {groupedVideos[categoria].map((video) => (
               <Card
                 key={video.id}
+                id={video.id}
                 img={video.imagen}
                 color={video.color}
                 titulo={video.titulo}
+                eliminar={() => eliminar(video.id)}
               />
             ))}
           </VideoContent>

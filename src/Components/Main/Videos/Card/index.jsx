@@ -2,7 +2,7 @@ import { CardStylizada } from "../../../../StyledComponent/Main/Videos/Card";
 import Editar from "../../../CardEdit";
 import { useState } from "react";
 
-export default function Card({ img, color }) {
+export default function Card({ id, img, color, eliminar }) {
   const [isEditing, setIsEditing] = useState(false);
 
   const handleEditClick = () => {
@@ -20,7 +20,7 @@ export default function Card({ img, color }) {
         style={{ backgroundImage: `url(${img})` }}
       ></div>
       <div className="rodapie">
-        <div className="rodabpieItems">
+        <div className="rodabpieItems" onClick={() => eliminar(id)}>
           <img src="/public/img/borrar.png" alt="Borrar" />
           <span>Borrar</span>
         </div>
