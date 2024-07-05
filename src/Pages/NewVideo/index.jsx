@@ -15,7 +15,16 @@ function NuevoVideo() {
       </Header>
       <NuevoVideoStylizado>
         <Titulo />
-        <Formulario border="3px" />
+        <Formulario
+          border="3px"
+          tamaño="470px"
+          ancho="100%"
+          gap="1em"
+          titulo="Crear Tarjeta:"
+        >
+          <ButtonNotClicked color="#2271d1" title="Guardar" type="submit" />
+          <ButtonNotClicked title="Limpiar" type="reset" />
+        </Formulario>
       </NuevoVideoStylizado>
       <Footer />
     </>

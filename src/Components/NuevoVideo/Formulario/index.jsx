@@ -4,39 +4,69 @@ import {
   Labels,
   FormularioStylizado,
   TituloContent,
+  Select,
+  TextArea,
+  BotonesContent,
 } from "../../../StyledComponent/New-Video-Module/FormularioStylizado";
 
-function Formulario({ border, color }) {
+function Formulario({
+  border,
+  color,
+  children,
+  justify,
+  tamaño,
+  anchoText,
+  bold,
+  size,
+  margin,
+  gap,
+  justifyButtons,
+  transform,
+  titulo,
+  ancho,
+  space,
+}) {
   return (
-    <FormularioStylizado>
-      <TituloContent border={border} color={color}>
-        <h2>Crear Tarjeta</h2>
+    <FormularioStylizado justify={justify} margin={margin}>
+      <TituloContent
+        border={border}
+        color={color}
+        bold={bold}
+        size={size}
+        ancho={ancho}
+        margin={margin}
+        transform={transform}
+      >
+        <h2>{titulo}</h2>
       </TituloContent>
       <div className="content">
-        <Labels htmlFor="titulo">Título</Labels>
+        <Labels htmlFor="titulo" style={{ textAlign: "left" }}>
+          Título
+        </Labels>
         <Inputs
           type="text"
           name="titulo"
           id="titulo"
           placeholder="ingrese el título"
-          tamaño="470px"
+          tamaño={tamaño}
           color={color}
         />
       </div>
 
       <div className="content">
         <Labels htmlFor="categoria">Categoría</Labels>
-        <select
+        <Select
           name="categoria"
           id="categoria"
           placeholder="seleccione una categoria"
           className="select"
+          color={color}
         >
           <option>seleccione una categoría</option>
           <option>Frontend</option>
           <option>Backend</option>
           <option>Innovacion y gestion</option>
-        </select>
+        </Select>
       </div>
 
       <div className="content">
@@ -63,17 +93,24 @@ function Formulario({ border, color }) {
 
       <div className="content textAreaContent">
         <Labels htmlFor="descripcion">Descripcion</Labels>
-        <textarea
+        <TextArea
           name="descripcion"
           id="descripcion"
           placeholder="¿de qué trata el vídeo?"
-        ></textarea>
+          color={color}
+          anchoText={anchoText}
+        ></TextArea>
       </div>
 
-      <div className="botones">
-        <ButtonNotClicked color="#2271d1" title="Guardar" type="submit" />
-        <ButtonNotClicked title="Limpiar" type="reset" />
-      </div>
+      <BotonesContent
+        className="botones"
+        gap={gap}
+        justify={justifyButtons}
+        space={space}
+        ancho={ancho}
+      >
+        {children}
+      </BotonesContent>
     </FormularioStylizado>
   );
 }

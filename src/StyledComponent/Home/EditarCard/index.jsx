@@ -13,11 +13,9 @@ export const DialogEdit = styled.dialog`
   position: absolute;
   display: flex;
   justify-content: center;
-  width: 974px;
-  height: 1140px;
+  width: 800px;
+  height: 1240px;
   top: 600px;
-  padding: 84px 0px 84px 0px;
-  gap: 0px;
   border-radius: 15px;
   border: 5px solid rgba(107, 209, 255, 1);
   justify-content: space-between;
