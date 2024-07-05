@@ -11,6 +11,9 @@ function Editar() {
     <>
       <FondoTrasparent />
       <DialogEdit open>
+        <div className="close">
+          <img src="/public/img/close.png" alt="Icono cerrar" />
+        </div>
         <Formulario
           color="#2271d1"
           justify="center"

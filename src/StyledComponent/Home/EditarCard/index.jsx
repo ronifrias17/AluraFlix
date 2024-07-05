@@ -21,4 +21,10 @@ export const DialogEdit = styled.dialog`
   justify-content: space-between;
   opacity: 0px;
   background-color: rgba(3, 18, 47, 1);
+
+  .close {
+    position: absolute;
+    left: 770px;
+    cursor: pointer;
+  }
 `;
