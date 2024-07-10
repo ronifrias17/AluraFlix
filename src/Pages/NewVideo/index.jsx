@@ -7,6 +7,28 @@ import Titulo from "../../Components/NuevoVideo/Titulo";
 import Formulario from "../../Components/NuevoVideo/Formulario";
 
 function NuevoVideo() {
+  const handleOnSubmit = async (data) => {
+    try {
+      const response = await fetch(
+        "https://api-proyectos-alura-one.vercel.app/videos-aluraFlix",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      );
+      if (response.ok) {
+        console.log("Datos enviados con éxito");
+      } else {
+        console.log("Error al enviar los datos");
+      }
+    } catch (error) {
+      console.error("Error en la petición:", error);
+    }
+  };
+
   return (
     <>
       <Header color="#000000e6">
@@ -21,6 +43,7 @@ function NuevoVideo() {
           ancho="100%"
           gap="1em"
           titulo="Crear Tarjeta:"
+          onSubmit={handleOnSubmit}
         >
           <button type="submit" className="Guardar">
             Guardar

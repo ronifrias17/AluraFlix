@@ -4,9 +4,31 @@ import {
 } from "../../StyledComponent/Home/EditarCard";
 import Formulario from "../NuevoVideo/Formulario";
 
-function Editar({ cerrar }) {
+function Editar({ cerrar, initialValues }) {
   const handleCerrar = () => {
     cerrar();
+  };
+
+  const handleOnSubmit = async (data) => {
+    try {
+      const response = await fetch(
+        `https://api-proyectos-alura-one.vercel.app/videos-aluraFlix/${initialValues.id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      );
+      if (response.ok) {
+        console.log("Datos actualizados con éxito");
+      } else {
+        console.log("Error al actualizar los datos");
+      }
+    } catch (error) {
+      console.error("Error en la petición:", error);
+    }
   };
 
   return (
@@ -26,6 +48,8 @@ function Editar({ cerrar }) {
           transform="uppercase"
           titulo="Editar Card:"
           ancho="545px"
+          initialValues={initialValues}
+          onSubmit={handleOnSubmit}
         >
           <button type="submit" className="Guardar_Edit">
             Guardar

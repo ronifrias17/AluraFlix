@@ -56,11 +56,9 @@ function ContentVideos({ onDataFetched }) {
             {groupedVideos[categoria].map((video) => (
               <Card
                 key={video.id}
-                id={video.id}
-                img={video.imagen}
+                video={video}
                 color={colorMap[categoria]}
-                titulo={video.titulo}
-                eliminar={() => eliminar(video.id)}
+                eliminar={eliminar}
               />
             ))}
           </VideoContent>

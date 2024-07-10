@@ -1,6 +1,5 @@
-import React, { Children } from "react";
 import { useForm } from "react-hook-form";
-
+import { useEffect } from "react";
 import {
   Inputs,
   Labels,
@@ -20,41 +19,26 @@ function Formulario({
   bold,
   size,
   margin,
-  gap,
-  justifyButtons,
   transform,
   titulo,
   ancho,
-  space,
   children,
+  initialValues = {}, // Valores iniciales pasados como props
+  onSubmit, // Callback para manejar el submit, puede ser create o update
 }) {
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = async (data) => {
-    try {
-      const response = await fetch(
-        "https://api-proyectos-alura-one.vercel.app/videos-aluraFlix",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        }
-      );
-      if (response.ok) {
-        console.log("Datos enviados con éxito");
-      } else {
-        console.log("Error al enviar los datos");
-      }
-    } catch (error) {
-      console.error("Error en la petición:", error);
+  useEffect(() => {
+    // Configura los valores iniciales cuando se monta el componente o cuando initialValues cambia
+    for (const key in initialValues) {
+      setValue(key, initialValues[key]);
     }
-  };
+  }, [initialValues, setValue]);
 
   return (
     <FormularioStylizado
@@ -108,13 +92,14 @@ function Formulario({
           {...register("categoria", {
             required: "Categoria obligatoria",
           })}
+          defaultValue={initialValues.categoria || ""}
         >
-          <option value="" disabled selected>
+          <option value="" disabled>
             Seleccione una categoría
           </option>
-          <option>frontend</option>
-          <option>backend</option>
-          <option>innovación y gestion</option>
+          <option value="frontend">frontend</option>
+          <option value="backend">backend</option>
+          <option value="innovación y gestion">innovación y gestion</option>
         </Select>
         {errors.categoria && (
           <span className="error">{errors.categoria.message}</span>
