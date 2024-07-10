@@ -1,4 +1,6 @@
-import React, { useState, forwardRef } from "react";
+import React, { Children } from "react";
+import { useForm } from "react-hook-form";
+
 import {
   Inputs,
   Labels,
@@ -9,209 +11,176 @@ import {
   BotonesContent,
 } from "../../../StyledComponent/New-Video-Module/FormularioStylizado";
 
-const Formulario = forwardRef(
-  (
-    {
-      border,
-      color,
-      children,
-      justify,
-      tamaño,
-      anchoText,
-      bold,
-      size,
-      margin,
-      gap,
-      justifyButtons,
-      transform,
-      titulo,
-      ancho,
-      space,
-      onSubmit,
-    },
-    ref
-  ) => {
-    const [formData, setFormData] = useState({
-      titulo: "",
-      categoria: "",
-      imagen: "",
-      video: "",
-      descripcion: "",
-    });
+function Formulario({
+  border,
+  color,
+  justify,
+  tamaño,
+  anchoText,
+  bold,
+  size,
+  margin,
+  gap,
+  justifyButtons,
+  transform,
+  titulo,
+  ancho,
+  space,
+  children,
+}) {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
-    const [errors, setErrors] = useState({});
-
-    const handleChange = (e) => {
-      const { name, value } = e.target;
-      setFormData((prevState) => ({
-        ...prevState,
-        [name]: value,
-      }));
-    };
-
-    const validateForm = () => {
-      const errors = {};
-
-      if (!formData.titulo) {
-        errors.titulo = "El título es obligatorio";
-      } else if (!/^[a-zA-Z0-9\s\-?]+$/.test(formData.titulo)) {
-        errors.titulo = "Título inválido";
-      }
-
-      if (!formData.categoria) {
-        errors.categoria = "La categoría es obligatoria";
-      }
-
-      if (!formData.imagen) {
-        errors.imagen = "La URL de la imagen es obligatoria";
-      } else if (
-        !/^https?:\/\/.+\.(jpg|jpeg|png|gif|bmp)$/.test(formData.imagen)
-      ) {
-        errors.imagen = "URL de imagen inválida";
-      }
-
-      if (!formData.video) {
-        errors.video = "La URL del video es obligatoria";
-      } else if (
-        !/^https?:\/\/(www\.)?youtube\.com\/watch\?v=[\w-]+$/.test(
-          formData.video
-        )
-      ) {
-        errors.video = "URL de YouTube inválida";
-      }
-
-      return errors;
-    };
-
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      const validationErrors = validateForm();
-      if (Object.keys(validationErrors).length === 0) {
-        onSubmit(formData);
+  const onSubmit = async (data) => {
+    try {
+      const response = await fetch(
+        "https://api-proyectos-alura-one.vercel.app/videos-aluraFlix",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      );
+      if (response.ok) {
+        console.log("Datos enviados con éxito");
       } else {
-        setErrors(validationErrors);
+        console.log("Error al enviar los datos");
       }
-    };
+    } catch (error) {
+      console.error("Error en la petición:", error);
+    }
+  };
 
-    const handleReset = () => {
-      setFormData({
-        titulo: "",
-        categoria: "",
-        imagen: "",
-        video: "",
-        descripcion: "",
-      });
-      setErrors({});
-    };
-
-    return (
-      <FormularioStylizado
-        ref={ref}
-        justify={justify}
+  return (
+    <FormularioStylizado
+      onSubmit={handleSubmit(onSubmit)}
+      justify={justify}
+      margin={margin}
+    >
+      <TituloContent
+        border={border}
+        color={color}
+        bold={bold}
+        size={size}
+        ancho={ancho}
         margin={margin}
-        onSubmit={handleSubmit}
-        onReset={handleReset}
+        transform={transform}
       >
-        <TituloContent
-          border={border}
+        <h2>{titulo}</h2>
+      </TituloContent>
+      <div className="content">
+        <Labels htmlFor="titulo" style={{ textAlign: "left" }}>
+          Título
+        </Labels>
+        <Inputs
+          type="text"
+          name="titulo"
+          id="titulo"
+          placeholder="Ingrese el título"
+          tamaño={tamaño}
           color={color}
-          bold={bold}
-          size={size}
-          ancho={ancho}
-          margin={margin}
-          transform={transform}
+          {...register("titulo", {
+            required: "Titulo obligatorio",
+            minLength: {
+              value: 5,
+              message: "Titulo debe tener un mínimo de 5 caracteres",
+            },
+          })}
+        />
+        {errors.titulo && (
+          <span className="error">{errors.titulo.message}</span>
+        )}
+      </div>
+
+      <div className="content">
+        <Labels htmlFor="categoria">Categoría</Labels>
+        <Select
+          name="categoria"
+          id="categoria"
+          placeholder="Seleccione una categoría"
+          className="select"
+          color={color}
+          {...register("categoria", {
+            required: "Categoria obligatoria",
+          })}
         >
-          <h2>{titulo}</h2>
-        </TituloContent>
-        <div className="content">
-          <Labels htmlFor="titulo" style={{ textAlign: "left" }}>
-            Título
-          </Labels>
-          <Inputs
-            type="text"
-            name="titulo"
-            id="titulo"
-            placeholder={errors.titulo || "Ingrese el título"}
-            tamaño={tamaño}
-            color={color}
-            value={formData.titulo}
-            onChange={handleChange}
-            style={errors.titulo ? { borderColor: "red", color: "red" } : {}}
-          />
-        </div>
+          <option value="" disabled selected>
+            Seleccione una categoría
+          </option>
+          <option>frontend</option>
+          <option>backend</option>
+          <option>innovación y gestion</option>
+        </Select>
+        {errors.categoria && (
+          <span className="error">{errors.categoria.message}</span>
+        )}
+      </div>
 
-        <div className="content">
-          <Labels htmlFor="categoria">Categoría</Labels>
-          <Select
-            name="categoria"
-            id="categoria"
-            placeholder={errors.categoria || "Seleccione una categoría"}
-            className="select"
-            color={color}
-            value={formData.categoria}
-            onChange={handleChange}
-            style={errors.categoria ? { borderColor: "red", color: "red" } : {}}
-          >
-            <option value="">Seleccione una categoría</option>
-            <option value="frontend">Frontend</option>
-            <option value="backend">Backend</option>
-            <option value="innovacionygestion">Innovación y gestión</option>
-          </Select>
-        </div>
+      <div className="content">
+        <Labels htmlFor="imagen">Imagen</Labels>
+        <Inputs
+          type="text"
+          name="imagen"
+          id="imagen"
+          placeholder="Ingrese el enlace de la imagen"
+          color={color}
+          {...register("imagen", {
+            required: "Imagen obligatoria",
+            pattern: {
+              value: /^(https?|chrome):\/\/[^\s$.?#].[^\s]*$/,
+              message: "Ingrese una URL válida",
+            },
+          })}
+        />
+        {errors.imagen && (
+          <span className="error">{errors.imagen.message}</span>
+        )}
+      </div>
 
-        <div className="content">
-          <Labels htmlFor="imagen">Imagen</Labels>
-          <Inputs
-            type="text"
-            name="imagen"
-            id="imagen"
-            placeholder={errors.imagen || "Ingrese el enlace de la imagen"}
-            color={color}
-            value={formData.imagen}
-            onChange={handleChange}
-            style={errors.imagen ? { borderColor: "red", color: "red" } : {}}
-          />
-        </div>
+      <div className="content">
+        <Labels htmlFor="video">Video</Labels>
+        <Inputs
+          type="text"
+          name="video"
+          id="video"
+          placeholder="Ingrese el enlace del video"
+          color={color}
+          {...register("video", {
+            required: "Video obligatorio",
+            pattern: {
+              value: /^(https?|chrome):\/\/[^\s$.?#].[^\s]*$/,
+              message: "Ingrese una URL válida",
+            },
+          })}
+        />
+        {errors.video && <span className="error">{errors.video.message}</span>}
+      </div>
 
-        <div className="content">
-          <Labels htmlFor="video">Video</Labels>
-          <Inputs
-            type="text"
-            name="video"
-            id="video"
-            placeholder={errors.video || "Ingrese el enlace del video"}
-            color={color}
-            value={formData.video}
-            onChange={handleChange}
-            style={errors.video ? { borderColor: "red", color: "red" } : {}}
-          />
-        </div>
+      <div className="content textAreaContent">
+        <Labels htmlFor="descripcion">Descripción</Labels>
+        <TextArea
+          name="descripcion"
+          id="descripcion"
+          placeholder="¿De qué trata el vídeo?"
+          color={color}
+          anchoText={anchoText}
+          {...register("descripcion", {
+            required: "Descripción obligatoria",
+          })}
+        ></TextArea>
+        {errors.descripcion && (
+          <span className="error">{errors.descripcion.message}</span>
+        )}
+      </div>
 
-        <div className="content textAreaContent">
-          <Labels htmlFor="descripcion">Descripción</Labels>
-          <TextArea
-            name="descripcion"
-            id="descripcion"
-            placeholder="¿De qué trata el video?"
-            color={color}
-            anchoText={anchoText}
-            value={formData.descripcion}
-            onChange={handleChange}
-          />
-        </div>
-
-        <BotonesContent
-          className="botones"
-          gap={gap}
-          justify={justifyButtons}
-          space={space}
-          ancho={ancho}
-        >
-          {children}
-        </BotonesContent>
-      </FormularioStylizado>
-    );
-  }
-);
+      <BotonesContent>{children}</BotonesContent>
+    </FormularioStylizado>
+  );
+}
 
 export default Formulario;

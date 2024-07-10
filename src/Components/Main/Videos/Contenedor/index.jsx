@@ -7,6 +7,12 @@ import Card from "../Card";
 function ContentVideos({ onDataFetched }) {
   const [videos, setVideos] = useState([]);
 
+  const colorMap = {
+    frontend: "#6bd1ff",
+    backend: "#00c86f",
+    "innovacion y gestion": "#ffba05",
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -44,9 +50,7 @@ function ContentVideos({ onDataFetched }) {
       {Object.keys(groupedVideos).map((categoria) => (
         <div key={categoria}>
           <ButtonContainer>
-            <Button color={groupedVideos[categoria][0].color}>
-              {categoria}
-            </Button>
+            <Button color={colorMap[categoria]}>{categoria}</Button>
           </ButtonContainer>
           <VideoContent>
             {groupedVideos[categoria].map((video) => (
@@ -54,7 +58,7 @@ function ContentVideos({ onDataFetched }) {
                 key={video.id}
                 id={video.id}
                 img={video.imagen}
-                color={video.color}
+                color={colorMap[categoria]}
                 titulo={video.titulo}
                 eliminar={() => eliminar(video.id)}
               />

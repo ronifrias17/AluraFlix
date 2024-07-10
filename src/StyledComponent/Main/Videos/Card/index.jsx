@@ -10,6 +10,7 @@ export const CardStylizada = styled.div`
   border: 5px solid ${(props) => props.color};
   box-shadow: 0px -4px 5px 3px ${(props) => props.color} inset;
   background: rgba(0, 0, 0, 0.9);
+  margin-bottom: 40px;
 
   .imagenContent {
     width: 100%;

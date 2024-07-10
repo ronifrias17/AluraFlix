@@ -9,4 +9,5 @@ export const VideoContent = styled.div`
   box-sizing: border-box;
   flex-direction: row;
   flex-wrap: wrap;
+  padding-bottom: 40px;
 `;

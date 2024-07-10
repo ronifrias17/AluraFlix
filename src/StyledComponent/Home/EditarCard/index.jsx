@@ -14,7 +14,7 @@ export const DialogEdit = styled.dialog`
   display: flex;
   justify-content: center;
   width: 800px;
-  height: 1240px;
+  height: 1400px;
   top: 600px;
   border-radius: 15px;
   border: 5px solid rgba(107, 209, 255, 1);

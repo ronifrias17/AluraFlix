@@ -14,6 +14,13 @@ const FormularioStylizado = styled.form`
     flex-direction: column;
     margin-bottom: 3em;
     justify-content: center;
+
+    .error {
+      font-size: 20px;
+      font-family: "Source Sans 3";
+      color: red;
+      padding-top: 2px;
+    }
   }
 `;
 
@@ -101,6 +108,70 @@ const BotonesContent = styled.div`
   justify-content: ${(props) => props.justify};
   gap: ${(props) => props.gap};
   align-items: center;
+
+  .Guardar {
+    width: 180.13px;
+    height: 54px;
+    border-radius: 10px;
+    border: 2px solid rgba(34, 113, 209, 1);
+    font-family: "Source Sans 3";
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 24px;
+    text-align: center;
+    color: rgba(255, 255, 255, 1);
+    background-color: transparent;
+    cursor: pointer;
+    margin-right: 20px;
+  }
+
+  .Limpiar {
+    width: 180.13px;
+    height: 54px;
+    border-radius: 10px;
+    border: 2px solid rgba(245, 245, 245, 1);
+    font-family: "Source Sans 3";
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 24px;
+    text-align: center;
+    color: rgba(255, 255, 255, 1);
+    background-color: transparent;
+    margin-left: 185px;
+    cursor: pointer;
+  }
+
+  .Limpiar_NVideo {
+    width: 180.13px;
+    height: 54px;
+    border-radius: 10px;
+    border: 2px solid rgba(245, 245, 245, 1);
+    font-family: "Source Sans 3";
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 24px;
+    text-align: center;
+    color: rgba(255, 255, 255, 1);
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  .Guardar_Edit {
+    width: 180.13px;
+    height: 54px;
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 10px;
+    border: 2px solid rgba(34, 113, 209, 1);
+    box-shadow: 0px 0px 12px 4px rgba(34, 113, 209, 1) inset;
+    font-family: "Source Sans 3";
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 24px;
+    text-align: center;
+    color: rgba(34, 113, 209, 1);
+    margin-left: 75px;
+    cursor: pointer;
+  }
 `;
 
 export {

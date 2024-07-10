@@ -1,15 +1,12 @@
-import { useState, useEffect } from "react";
 import {
   DialogEdit,
   FondoTrasparent,
 } from "../../StyledComponent/Home/EditarCard";
-import ButtonNotClicked from "../../StyledComponent/Home/Header/Header-Component/Button-Not-Clicked";
-import ButtonClicked from "../../StyledComponent/Home/Header/Header-Component/Button-clicked";
 import Formulario from "../NuevoVideo/Formulario";
 
 function Editar({ cerrar }) {
   const handleCerrar = () => {
-    cerrar(); 
+    cerrar();
   };
 
   return (
@@ -30,8 +27,12 @@ function Editar({ cerrar }) {
           titulo="Editar Card:"
           ancho="545px"
         >
-          <ButtonClicked title="Guardar" type="submit" />
-          <ButtonNotClicked title="Limpiar" type="reset" />
+          <button type="submit" className="Guardar_Edit">
+            Guardar
+          </button>
+          <button type="reset" className="Limpiar">
+            Limpiar
+          </button>
         </Formulario>
       </DialogEdit>
     </>
