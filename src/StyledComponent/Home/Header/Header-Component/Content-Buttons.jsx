@@ -10,5 +10,6 @@ export const Content = styled.div`
 
   @media (min-width: 600px) and (max-width: 1024px) {
     width: 40%;
+    
   }
 `;

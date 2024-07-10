@@ -15,11 +15,16 @@ export const HeaderStylizado = styled.header`
     margin-left: 3%;
   }
 
+  /* Estilos para tabletas (ancho de pantalla entre 600px y 900px) */
   @media (min-width: 600px) and (max-width: 1024px) {
     background: rgba(0, 0, 0, 0.9);
 
     .imgLogoContent {
       margin-left: 30px;
     }
+  }
+
+  /* Estilos para teléfonos inteligentes (ancho de pantalla menor a 600px) */
+  @media (max-width: 599px) {
   }
 `;

@@ -42,4 +42,15 @@ export const CardStylizada = styled.div`
     color: rgba(255, 255, 255, 1);
     cursor: pointer;
   }
+
+  /* Estilos para tabletas (ancho de pantalla entre 600px y 900px) */
+  @media (min-width: 600px) and (max-width: 1024px) {
+    width: 450px;
+    height: 400;
+    flex: 0 0 auto;
+  }
+
+  /* Estilos para teléfonos inteligentes (ancho de pantalla menor a 600px) */
+  @media (max-width: 599px) {
+  }
 `;
